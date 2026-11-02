@@ -1,0 +1,216 @@
+﻿@model InsuraV2.Models.Marine
+
+@{
+    ViewData["Title"] = "Marine Insurance";
+}
+
+<div class="progress-container">
+
+    <div class="step active">
+        Basic Info
+    </div>
+
+    <div class="step">
+        Shipment Details
+    </div>
+
+    <div class="step">
+        Coverage
+    </div>
+
+    <div class="step">
+        Quote
+    </div>
+
+</div>
+
+<div class="container mt-4">
+
+    <h2 class="text-primary mb-4">
+        🚢 Marine Insurance
+    </h2>
+
+    <div class="card shadow p-4">
+
+        <h4 class="mb-4">
+            Basic Information
+        </h4>
+
+        <form asp-action="Quotation" method="post">
+
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">
+                        Company National ID
+                    </label>
+
+                    <input asp-for="CompanyNationalId"
+                           class="form-control" />
+
+                    <span asp-validation-for="CompanyNationalId"
+                          class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">
+                        Contact Person Name
+                    </label>
+
+                    <input asp-for="ContactPersonName"
+                           class="form-control" />
+
+                    <span asp-validation-for="ContactPersonName"
+                          class="text-danger"></span>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">
+                        Email Address
+                    </label>
+
+                    <input asp-for="Email"
+                           class="form-control" />
+
+                    <span asp-validation-for="Email"
+                          class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">
+                        Mobile Number
+                    </label>
+
+                    <input asp-for="MobileNumber"
+                           class="form-control" />
+
+                    <span asp-validation-for="MobileNumber"
+                          class="text-danger"></span>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">
+                        Policy Type
+                    </label>
+
+                    <select asp-for="PolicyType"
+                            class="form-select">
+
+                        <option value="">Select Policy Type</option>
+                        <option>Open Cover</option>
+                        <option>Single Shipment</option>
+                        <option>Annual Cover</option>
+
+                    </select>
+
+                    <span asp-validation-for="PolicyType"
+                          class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">
+                        Cargo Type
+                    </label>
+
+                    <select asp-for="CargoType"
+                            class="form-select">
+
+                        <option value="">Select Cargo Type</option>
+                        <option>Machinery</option>
+                        <option>Electronics</option>
+                        <option>Furniture</option>
+
+                    </select>
+
+                    <span asp-validation-for="CargoType"
+                          class="text-danger"></span>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">
+                        Insured Amount
+                    </label>
+
+                    <input asp-for="InsuredAmount"
+                           type="number"
+                           class="form-control" />
+
+                    <span asp-validation-for="InsuredAmount"
+                          class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">
+                        Coverage Clause
+                    </label>
+
+                    <select asp-for="CoverageClause"
+                            class="form-select">
+
+                        <option value="">Select Coverage</option>
+                        <option>Institute Cargo Clause A</option>
+                        <option>Institute Cargo Clause B</option>
+                        <option>Institute Cargo Clause C</option>
+
+                    </select>
+
+                    <span asp-validation-for="CoverageClause"
+                          class="text-danger"></span>
+                </div>
+
+            </div>
+
+            @if (Model != null && Model.Price > 0)
+            {
+                <div class="alert alert-success mt-4">
+
+                    <h5>Quotation Summary</h5>
+
+                    <hr />
+
+                    <p class="mb-0">
+                        Estimated Premium:
+                        <strong>@Model.Price JOD</strong>
+                    </p>
+
+                </div>
+            }
+
+            <hr />
+
+            <div class="d-flex justify-content-between">
+
+                <a asp-controller="Home"
+                   asp-action="Index"
+                   class="btn btn-secondary">
+                    Back
+                </a>
+
+                <button type="submit"
+                        class="btn btn-primary">
+                    Calculate Premium
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

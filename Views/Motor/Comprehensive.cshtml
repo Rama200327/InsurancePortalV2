@@ -1,0 +1,67 @@
+﻿@model IEnumerable<InsuraV2.Models.Motor>
+@{
+    ViewBag.PageTitle = "Motor Comprehensive";
+
+    ViewBag.PageDescription =
+        "Manage motor insurance policies and quotations.";
+}
+
+<partial name="_PageHeader" />
+<div class="card shadow-sm">
+
+    <div class="card-body">
+
+        <div class="d-flex justify-content-between mb-4">
+            <h4>Motor Insurance Comprehensive Policies</h4>
+            <a asp-controller="Motor"
+               asp-action="CreateComprehensive"
+               class="btn btn-warning text-white">
+                + Add
+            </a>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <input class="form-control"
+                       placeholder="Search by plate number">
+            </div>
+
+            <div class="col-md-2">
+                <select class="form-select">
+                    <option>Active</option>
+                    <option>Draft</option>
+                </select>
+            </div>
+
+            <div class="col-md-2">
+                <button class="btn btn-primary w-100">
+                    Apply
+                </button>
+            </div>
+
+            <div class="col-md-2">
+                <button class="btn btn-outline-secondary w-100">
+                    Clear
+                </button>
+            </div>
+
+        </div>
+
+        <table class="table">
+
+            <thead>
+                <tr>
+                    <th>Plate Number</th>
+                    <th>Registration Number</th>
+                    <th>Customer Name</th>
+                    <th>Vehicle Type</th>
+                    <th>Premium</th>
+                </tr>
+            </thead>
+
+
+        </table>
+
+    </div>
+
+</div>

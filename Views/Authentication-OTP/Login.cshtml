@@ -1,0 +1,125 @@
+﻿@model InsuraV2.Models.Login
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Login</title>
+
+    <link rel="stylesheet" href="~/css/login.css" />
+
+   < a href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+</head>
+
+<body>
+
+    <div class="page-container">
+
+        <!-- LEFT SIDE -->
+
+        <div class="left-panel">
+
+            <div class="logo-section">
+"
+                <img src="C:\Users\r.abuaqoulah\Downloads\GIG_Logo.width-500.png">
+                <p>Insura Company</p>
+                </div>
+
+                </div>
+
+                <div class="hero-content">
+
+                <span class="portal-badge">
+                    Agents & Brokers Portal
+                </span>
+
+                <h1>
+                    The Authorized
+                    <br>
+                    <span>Broker Portal</span>
+                </h1>
+
+                <p>
+                    A Comprehensive Platform For Managing Insurance Policies,
+                    Tracking Commissions, And Collaborating With The GIG Jordan Team.
+                </p>
+
+                <div class="feature-tags">
+
+                    <div class="tag">
+                        Enterprise Security
+                    </div>
+
+                    <div class="tag">
+                        Advanced Analytics
+                    </div>
+
+                    <div class="tag">
+                        Bilingual AR / EN
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="bottom-cards">
+
+                <div class="mini-card">
+                    <h4>Invested In You</h4>
+                    <p>Brand Positioning</p>
+                </div>
+
+                <div class="mini-card">
+                    <h4>Relationship Is Wealth</h4>
+                    <p>Brand Philosophy</p>
+                </div>
+
+                <div class="mini-card">
+                    <h4>MENA Region</h4>
+                    <p>Market Focus</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT SIDE -->
+
+        <div class="right-panel">
+
+            <div class="language-btn">
+                العربية
+            </div>
+
+            <div class="login-box">
+
+            <h1>Sign In</h1>
+            <p>
+                Welcome To The Agents & Brokers Portal
+            </p>
+
+            <form asp-action="Login">
+
+                <label>Email</label>
+                <input asp-for="Email" />
+
+                
+                <button type="submit">
+                    Log In
+                </button>
+
+            </form>
+
+                </div>
+
+
+        </div>
+
+
+</body>
+</html>

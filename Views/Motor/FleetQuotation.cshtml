@@ -1,0 +1,131 @@
+﻿@{
+    ViewBag.PageTitle = "Fleet Quotation";
+
+    ViewBag.PageDescription =
+        "Submit motor fleet insurance requests and monitor their status.";
+}
+
+    <div class="card-body">
+
+        <div class="d-flex justify-content-between mb-4">
+
+            <div>
+
+                <h3>Fleet Quotation</h3>
+
+                <small class="text-muted">
+                    Submit motor fleet insurance requests and monitor their status.
+                </small>
+
+            </div>
+
+            <a asp-controller="Motor"
+               asp-action="CreateFleetQuotation"
+               class="btn btn-warning text-white">
+
+                + Add
+
+            </a>
+
+        </div>
+
+        <div class="row mb-4">
+
+            <div class="col-md-5">
+                <input class="form-control"
+                       placeholder="Search by request number" />
+            </div>
+
+            <div class="col-md-3">
+                <select class="form-select">
+                    <option>All Statuses</option>
+                </select>
+            </div>
+
+            <div class="col-md-2">
+                <button class="btn btn-primary w-100">
+                    Apply
+                </button>
+            </div>
+
+            <div class="col-md-2">
+                <button class="btn btn-outline-secondary w-100">
+                    Clear
+                </button>
+            </div>
+
+        </div>
+
+        <table class="table">
+
+            <thead>
+
+                <tr>
+
+                    <th>Actions</th>
+                    <th>Request Number</th>
+                    <th>Total Quotation Vehicles</th>
+                    <th>Status</th>
+                    <th>Expiry Date</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+
+                    <td>👁 ✏</td>
+
+                    <td>MFL-252</td>
+
+                    <td>1</td>
+
+                    <td>
+                        <span class="badge bg-success">
+                            Approved
+                        </span>
+                    </td>
+
+                    <td>20/09/2026</td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+    function goToStep2()
+    {
+        document.getElementById("step1").style.display="none";
+        document.getElementById("step2").style.display="block";
+    }
+
+    function backToStep1()
+    {
+        document.getElementById("step2").style.display="none";
+        document.getElementById("step1").style.display="block";
+    }
+
+    function goToStep3()
+    {
+        document.getElementById("step2").style.display="none";
+        document.getElementById("step3").style.display="block";
+    }
+
+    function backToStep2()
+    {
+        document.getElementById("step3").style.display="none";
+        document.getElementById("step2").style.display="block";
+    }
+
+</script>

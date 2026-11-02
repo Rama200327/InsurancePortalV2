@@ -1,0 +1,1156 @@
+﻿@model Motor
+
+@{
+    ViewData["Title"] = "Comprehensive Insurance";
+}
+
+<form asp-action="CreateComprehensive"
+      asp-controller="Motor"
+      method="post">
+
+        <div class="card-body" style="min-height:650px;"> 
+    <h3 class="mb-4">Comprehensive Insurance</h3>
+
+    <!-- Stepper -->
+    <div class="d-flex justify-content-center align-items-start mb-5">
+
+        <!-- Step 1 -->
+        <div class="text-center">
+
+            <div id="circle1"
+                 class="rounded-circle bg-success text-white fw-bold d-flex align-items-center justify-content-center"
+                 style="width:35px;height:35px;font-size:14px;">
+                1
+            </div>
+
+            <small class="d-block mt-2">
+                Vehicle Information
+            </small>
+
+        </div>
+
+        <!-- Line -->
+        <div style="
+            width:60px;
+            height:2px;
+            background:#6ECDBA;
+            margin:17px 15px 0 15px;">
+        </div>
+
+        <!-- Step 2 -->
+        <div class="text-center">
+            <div id="circle2"
+                 class="rounded-circle border d-flex align-items-center justify-content-center"
+                 style="width:35px;height:35px;font-size:14px;">
+                2
+            </div>
+
+            <small class="d-block mt-2">
+                Customer Information
+            </small>
+
+        </div>
+
+        <!-- Line -->
+        <div style="
+            width:60px;
+            height:2px;
+            background:#d9d9d9;
+            margin:17px 15px 0 15px;">
+        </div>
+
+        <!-- Step 3 -->
+        <div class="text-center">
+
+            <div id="circle3"
+                 class="rounded-circle border d-flex align-items-center justify-content-center"
+                 style="width:35px;height:35px;font-size:14px;">
+                3
+            </div>
+
+            <small class="d-block mt-2">
+                Benefits and Coverage
+            </small>
+
+        </div>
+
+        <!-- Line -->
+        <div style="
+            width:60px;
+            height:2px;
+            background:#d9d9d9;
+            margin:17px 15px 0 15px;">
+        </div>
+
+        <!-- Step 4 -->
+        <div class="text-center">
+
+            <div id="circle4"
+                 class="rounded-circle border d-flex align-items-center justify-content-center"
+                 style="width:35px;height:35px;font-size:14px;">
+                4
+            </div>
+
+            <small class="d-block mt-2">
+                Payment Cycle
+            </small>
+
+        </div>
+
+        <!-- Line -->
+        <div style="
+            width:60px;
+            height:2px;
+            background:#d9d9d9;
+            margin:17px 15px 0 15px;">
+        </div>
+
+        <!-- Step 5 -->
+        <div class="text-center">
+
+            <div id="circle5"
+                 class="rounded-circle border d-flex align-items-center justify-content-center"
+                 style="width:35px;height:35px;font-size:14px;">
+                5
+            </div>
+
+            <small class="d-block mt-2">
+                Final Quotation
+            </small>
+
+        </div>
+
+    </div>
+
+<div id="step1">
+    <!-- Vehicle Information -->
+
+
+        <small class="d-block mt-2 text-center"
+               style="width:120px;">
+            Vehicle Information
+        </small>
+
+        <div class="card shadow-sm">
+
+            <div class="card-body">
+
+                <!-- Car Type -->
+
+                <div class="mb-4">
+
+                    <label class="form-label fw-bold">Car Type</label>
+
+                    <div>
+
+                        <input type="radio" name="CarType" id="private" />
+                        <label for="private">Private</label>
+
+                        <input type="radio" name="CarType" id="commercial" class="ms-3" />
+                        <label for="commercial">Commercial</label>
+
+                    </div>
+
+                </div>
+
+                <!--Is this person the vehicle driver?-->
+                <div class="mb-4">
+
+                    <label class="form-label fw-bold">
+                        Is this person the vehicle driver?
+                    </label>
+
+                    <div>
+                        <input type="radio"
+                               name="IsDriver"
+                               id="driverYes" />
+
+                        <label for="driverYes">Yes</label>
+
+                        <input type="radio"
+                               name="IsDriver"
+                               id="driverNo"
+                               class="ms-3" />
+
+                        <label for="driverNo">No</label>
+                    </div>
+
+                </div>
+
+                <!-- License Images -->
+
+                <div class="row mb-4">
+
+                    <div class="col-md-6">
+
+                        <label class="form-label">Front Side License</label>
+
+                        <input type="file" 
+                               id="Front Side License"
+                               class="form-control" />
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <label class="form-label">Back Side License</label>
+
+                        <input type="file"
+                               id="Back Side License"
+                               class="form-control" />
+
+                    </div>
+
+                </div>
+
+                <!-- Vehicle Details -->
+
+                <div class="row mb-4">
+
+                    <div class="col-md-4">
+
+                        <label class="form-label">Plate Number</label>
+                            <input asp-for="PlateNumber"
+                                   class="form-control" />
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <label class="form-label">Chassis Number</label>
+                            <input asp-for="ChassisNumber"
+                                   class="form-control" />
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <label class="form-label">Registration Number</label>
+                            <input asp-for="RegistrationNumber"
+                                   class="form-control" />
+
+                    </div>
+
+                </div>
+
+                <!-- Dropdowns -->
+
+                <div class="row mb-4">
+
+                    <div class="col-md-4">
+
+                        <label class="form-label">Vehicle Type</label>
+
+                        <select class="form-select">
+                            <option value="">Select Vehicle Type</option>
+                            <option>Sedan</option>
+                            <option>SUV</option>
+                            <option>Hatchback</option>
+                            <option>Pickup</option>
+                            <option>Truck</option>
+                            <option>Bus</option>
+                        </select>
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <label class="form-label">Vehicle Model</label>
+
+                        <select class="form-select">
+                            <option value="">Select Vehicle Model</option>
+                            <option>Toyota Corolla</option>
+                            <option>Toyota Camry</option>
+                            <option>Hyundai Elantra</option>
+                            <option>Hyundai Tucson</option>
+                            <option>Kia Sportage</option>
+                            <option>Nissan Sunny</option>
+                        </select>
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <label class="form-label">Production Year</label>
+
+                        <select class="form-select">
+                            <option value="">Select Year</option>
+
+                            <option>2026</option>
+                            <option>2025</option>
+                            <option>2024</option>
+                            <option>2023</option>
+                            <option>2022</option>
+                            <option>2021</option>
+                            <option>2020</option>
+                            <option>2019</option>
+                            <option>2018</option>
+                            <option>2017</option>
+                            <option>2016</option>
+                            <option>2015</option>
+                            <option>2014</option>
+                            <option>2013</option>
+                            <option>2012</option>
+                            <option>2011</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <!-- Vehicle Value -->
+
+                <div class="mb-4">
+
+                    <label class="form-label fw-bold">
+                        Estimated Market Value Range
+                    </label>
+
+                    <input type="number"
+                           class="form-control mb-3"
+                           placeholder="Vehicle Sum Insured (JOD)" />
+
+                    <input type="range"
+                           class="form-range"
+                           min="1000"
+                           max="100000"
+                           step="500" />
+
+                    <div class="d-flex justify-content-between">
+                        <small>
+                            250<br>
+                            Min Value
+                        </small>
+                        <small>Current Value</small>
+                        <small>
+                            750<br>
+                            Max Value
+                        </small>
+
+                    </div>
+
+                </div>
+
+                <!-- Buttons -->
+
+                <div class="d-flex justify-content-end">
+
+                    <button type="button"
+                            class="btn btn-primary"
+                            onclick="goToStep2()">
+                        Next
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="step2" style="display:none">
+    <!-- Customer Information -->
+
+    <small class="d-block mt-2 text-center"
+           style="width:120px;">
+        Customer Information
+    </small>
+
+
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+
+            <!-- Accounted For -->
+            <div class="row mb-4">
+
+                <div class="col-md-6">
+
+                    <label class="form-label">
+                        Accounted For
+                    </label>
+
+                    <select class="form-select">
+                        <option>Self</option>
+                        <option>Family Member</option>
+                    </select>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <label class="form-label">
+                        Email Address
+                    </label>
+
+                    <input type="email"
+                           class="form-control" />
+
+                </div>
+
+            </div>
+
+            <!-- National ID Upload -->
+
+            <div class="row mb-4">
+
+                <div class="col-md-6">
+
+                    <label class="form-label">
+                        Front Side Of National ID
+                    </label>
+
+                    <input type="file"
+                           class="form-control" />
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <label class="form-label">
+                        Back Side Of National ID
+                    </label>
+
+                    <input type="file"
+                           class="form-control" />
+
+                </div>
+            </div>
+
+
+            <!-- Nationality & National ID -->
+
+            <div class="row mb-4">
+
+                <div class="col-md-6">
+
+                    <label class="form-label">
+                        Nationality
+                    </label>
+
+                    <input class="form-control"
+                           list="nationalities"
+                           placeholder="Select Nationality">
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <label class="form-label">
+                        National ID
+                    </label>
+
+                    <input type="text"
+                           class="form-control" />
+
+                </div>
+
+            </div>
+
+           
+
+            <!-- English Names -->
+
+            <div class="row mb-4">
+
+                <div class="col-md-3">
+
+                    <label class="form-label">
+                        First Name (English)
+                    </label>
+
+                    <input type="text"
+                           class="form-control" />
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <label class="form-label">
+                        Second Name (English)
+                    </label>
+
+                    <input type="text"
+                           class="form-control" />
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <label class="form-label">
+                        Third Name (English)
+                    </label>
+
+                    <input type="text"
+                           class="form-control" />
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <label class="form-label">
+                        Last Name (English)
+                    </label>
+
+                    <input type="text"
+                           class="form-control" />
+
+                </div>
+
+            </div>
+
+            <!-- Arabic Names -->
+
+            <div class="row mb-4">
+
+                <div class="col-md-3">
+
+                    <label class="form-label">
+                        First Name (Arabic)
+                    </label>
+
+                    <input type="text"
+                           class="form-control" />
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <label class="form-label">
+                        Second Name (Arabic)
+                    </label>
+
+                    <input type="text"
+                           class="form-control" />
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <label class="form-label">
+                        Third Name (Arabic)
+                    </label>
+
+                    <input type="text"
+                           class="form-control" />
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <label class="form-label">
+                        Last Name (Arabic)
+                    </label>
+
+                    <input type="text"
+                           class="form-control" />
+
+                </div>
+
+            </div>
+
+            <!-- Contact & Personal Information -->
+
+            <div class="row mb-4">
+
+                <div class="col-md-3">
+
+                    <label class="form-label">
+                        Mobile
+                    </label>
+
+                    <input type="text"
+                           class="form-control" />
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <label class="form-label">
+                        Marital Status
+                    </label>
+
+                    <select class="form-select">
+                        <option>Single</option>
+                        <option>Married</option>
+                    </select>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <label class="form-label">
+                        Date Of Birth
+                    </label>
+
+                    <input type="date"
+                           class="form-control" />
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <label class="form-label d-block">
+                        Gender
+                    </label>
+
+                    <input type="radio"
+                           name="Gender"
+                           id="male" />
+
+                    <label for="male">Male</label>
+
+                    <input type="radio"
+                           name="Gender"
+                           id="female"
+                           class="ms-3" />
+
+                    <label for="female">Female</label>
+
+                </div>
+
+            </div>
+
+            <!-- Buttons -->
+
+            <div class="d-flex justify-content-between">
+
+                <button type="button"
+                        class="btn btn-outline-secondary"
+                        onclick="backToStep1()">
+                    Back
+                </button>
+
+                <button type="button"
+                        class="btn btn-primary"
+                        onclick="goToStep3()">
+                    Next
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div id="step3" style="display:none">
+    <!-- Benefits & Coverage -->
+
+    <small class="d-block mt-2 text-center"
+           style="width:120px;">
+        Benefits and Coverage
+    </small>
+
+    <div class="card shadow-sm">
+
+        <div class="card-body">
+
+            <!-- Pricing Information -->
+
+            <div class="border rounded p-3 mb-3">
+
+                <h6 class="fw-bold text-success">
+                    Pricing Information
+                </h6>
+
+                <input type="text"
+                       class="form-control mt-2"
+                       value="762.44"
+                       readonly />
+
+            </div>
+
+            <!-- Policy Effective Date -->
+
+            <div class="mb-4">
+
+                <label class="form-label fw-bold">
+                    Policy Effective Date
+                </label>
+
+                <input type="date"
+                       class="form-control mb-2" />
+
+                <div class="form-check">
+
+                    <input class="form-check-input"
+                           type="checkbox"
+                           checked>
+
+                    <label class="form-check-label">
+                        Set today's date as the policy start date by default.
+                    </label>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <!-- Basic Benefits -->
+
+                <div class="col-md-6">
+
+                    <h5 class="fw-bold mb-3">
+                        Basic Benefits
+                    </h5>
+
+                    <ul>
+                        <li>Included Coverage for Airbags</li>
+                        <li>Free Roadside Assistance Services</li>
+                        <li>Maximum 50% Liability for Accidents by Unknown Persons</li>
+                    </ul>
+
+                </div>
+
+                <!-- Additional Benefits -->
+
+                <div class="col-md-6">
+
+                    <h5 class="fw-bold mb-3">
+                        Additional Benefits
+                    </h5>
+
+                    <div class="form-check mb-3">
+
+                        <input class="form-check-input"
+                               type="checkbox"
+                               checked>
+
+                        <label class="form-check-label">
+                            Agency Repair Coverage
+                        </label>
+
+                        <span class="float-end text-primary fw-bold">
+                            75 JOD
+                        </span>
+
+                    </div>
+
+                    <div class="form-check mb-3">
+
+                        <input class="form-check-input"
+                               type="checkbox">
+
+                        <label class="form-check-label">
+                            Natural Hazard Coverage
+                        </label>
+
+                        <span class="float-end text-primary fw-bold">
+                            50 JOD
+                        </span>
+
+                    </div>
+
+                    <div class="form-check mb-3">
+
+                        <input class="form-check-input"
+                               type="checkbox">
+
+                        <label class="form-check-label">
+                            Depreciation Exemption
+                        </label>
+
+                        <span class="float-end text-primary fw-bold">
+                            150 JOD
+                        </span>
+
+                    </div>
+
+                    <div class="form-check mb-3">
+
+                        <input class="form-check-input"
+                               type="checkbox">
+
+                        <label class="form-check-label">
+                            Car Rental Allowance
+                        </label>
+
+                        <span class="float-end text-primary fw-bold">
+                            75 JOD
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="d-flex justify-content-between mt-5">
+
+                <button type="button"
+                        class="btn btn-outline-secondary"
+                        onclick="backToStep2()">
+                    Back
+                </button>
+
+                <button type="button"
+                        class="btn btn-warning text-white"
+                        onclick="goToStep4()">
+                    Next
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div id="step4" style="display:none">
+    <!-- Payment Cycle -->
+
+    <small class="d-block mt-2 text-center"
+           style="width:120px;">
+        Payment Cycle
+    </small>
+
+
+    <small class="d-block mt-2 text-center"
+           style="width:120px;">
+        Benefits and Coverage
+    </small>
+
+    <div class="card shadow-sm">
+
+        <div class="card-body">
+
+            <h4 class="fw-bold">
+                Select Payment Plan
+            </h4>
+
+            <p class="text-muted">
+                Choose how you want to split the payment.
+            </p>
+
+            <label class="fw-bold mb-2">
+                Available Payment Plans
+            </label>
+
+            <div class="border rounded p-4 mb-5">
+
+                <div class="form-check">
+
+                    <input class="form-check-input"
+                           type="radio"
+                           checked
+                           name="PaymentPlan"
+                           id="oneInstallment">
+
+                    <label class="form-check-label"
+                           for="oneInstallment">
+
+                        One Installment
+                    </label>
+
+                    <button class="btn btn-outline-primary">
+                        Calculate Payment
+                    </button> 
+                </div>
+
+            </div>
+
+            <div class="d-flex justify-content-between">
+
+                <button type="button"
+                        class="btn btn-outline-secondary"
+                        onclick="backToStep3()">
+                    Back
+                </button>
+                <button type="button"
+                        class="btn btn-warning text-white"
+                        onclick="goToStep5()">
+                    Next
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div id="step5" style="display:none">
+    <!-- Final Quotation -->
+
+    <small class="d-block mt-2 text-center"
+           style="width:120px;">
+        Final Quotation
+    </small>
+    <div class="card shadow-sm">
+
+        <div class="card-body">
+
+            <h5 class="mb-3">
+                Vehicle Information
+            </h5>
+
+            <div class="row mb-3">
+
+                <div class="col-md-3">
+                    <input class="form-control"
+                           value="Car Type"
+                           readonly />
+                </div>
+
+                <div class="col-md-3">
+                    <input class="form-control"
+                           value="Vehicle Type"
+                           readonly />
+                </div>
+
+                <div class="col-md-3">
+                    <input class="form-control"
+                           value="Vehicle Model"
+                           readonly />
+                </div>
+
+                <div class="col-md-3">
+                    <input class="form-control"
+                           value="Production Year"
+                           readonly />
+                </div>
+
+            </div>
+
+            <div class="row mb-3">
+
+                <div class="col-md-3">
+                    <input class="form-control"
+                           value="Fuel Type"
+                           readonly />
+                </div>
+
+                <div class="col-md-3">
+                    <input class="form-control"
+                           value="Engine Number"
+                           readonly />
+                </div>
+
+                <div class="col-md-3">
+                    <input class="form-control"
+                           value="Plate Number"
+                           readonly />
+                </div>
+
+                <div class="col-md-3">
+                    <input class="form-control"
+                           value="Chassis Number"
+                           readonly />
+                </div>
+
+            </div>
+
+            <div class="row mb-4">
+
+                <div class="col-md-3">
+                    <input class="form-control"
+                           value="Registration Number"
+                           readonly />
+                </div>
+
+                <div class="col-md-3">
+                    <input class="form-control"
+                           value="Car Value"
+                           readonly />
+                </div>
+
+                <div class="col-md-3">
+                    <input class="form-control"
+                           value="Customer Name"
+                           readonly />
+                </div>
+
+                <div class="col-md-3">
+                    <input class="form-control"
+                           value="Customer ID"
+                           readonly />
+                </div>
+
+            </div>
+
+            <hr />
+
+            <h5 class="mb-3">
+                Pricing Information
+            </h5>
+
+            <div class="col-md-3 mb-4">
+
+                <input class="form-control"
+                       value="762.44"
+                       readonly />
+
+            </div>
+
+            <div class="mb-4">
+
+                <button class="btn btn-outline-secondary me-2">
+                    VISA
+                </button>
+
+                <button class="btn btn-outline-secondary">
+                    Debit
+                </button>
+
+            </div>
+
+            <div class="mb-4">
+
+                <label class="form-label">
+                    Notes
+                </label>
+
+                <textarea class="form-control"
+                          rows="3"></textarea>
+
+            </div>
+
+            <div class="d-flex justify-content-between">
+
+                <button type="button"
+                        class="btn btn-outline-secondary"
+                        onclick="backToStep4()">
+                    Back
+                </button>
+
+                <div>
+                     
+                    
+                    <button type="button"
+                            class="btn btn-outline-secondary me-2">
+                        Save As Draft
+                    </button>
+
+                        <button type="submit"
+                                class="btn btn-warning text-white">
+                            Submit
+                        </button>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<script>
+
+        function updateStepper(step) {
+
+        for (let i = 1; i <= 5; i++) {
+
+            let circle =
+                document.getElementById("circle" + i);
+
+            circle.classList.remove("bg-success");
+            circle.classList.remove("text-white");
+
+            circle.classList.add("border");
+        }
+
+        let activeCircle =
+            document.getElementById("circle" + step);
+
+        activeCircle.classList.remove("border");
+
+        activeCircle.classList.add("bg-success");
+        activeCircle.classList.add("text-white");
+    }
+
+
+
+
+        function backToStep1() {
+
+        document.getElementById("step2").style.display = "none";
+        document.getElementById("step1").style.display = "block";
+
+    }
+
+        function goToStep2() {
+
+        document.getElementById("step1").style.display = "none";
+        document.getElementById("step2").style.display = "block";
+
+        updateStepper(2);
+    }
+
+        function backToStep2() {
+
+        document.getElementById("step3").style.display = "none";
+        document.getElementById("step2").style.display = "block";
+
+    }
+
+       function goToStep3() {
+
+        document.getElementById("step2").style.display = "none";
+        document.getElementById("step3").style.display = "block";
+
+        updateStepper(3);
+    }
+
+
+        function backToStep4() {
+
+        document.getElementById("step5").style.display = "none";
+        document.getElementById("step4").style.display = "block";
+
+    }
+    
+
+       function goToStep4() {
+
+    document.getElementById("step3").style.display = "none";
+    document.getElementById("step4").style.display = "block";
+
+    updateStepper(4);
+   }
+
+
+  
+      function goToStep5() {
+
+        document.getElementById("step4").style.display = "none";
+        document.getElementById("step5").style.display = "block";
+
+        updateStepper(5);
+    }
+
+    
+         function backToStep1() {
+
+        document.getElementById("step2").style.display = "none";
+        document.getElementById("step1").style.display = "block";
+
+        updateStepper(1);
+    }
+
+        function backToStep2() {
+
+        document.getElementById("step3").style.display = "none";
+        document.getElementById("step2").style.display = "block";
+
+        updateStepper(2);
+    }
+
+        function backToStep3() {
+
+        document.getElementById("step4").style.display = "none";
+        document.getElementById("step3").style.display = "block";
+
+        updateStepper(3);
+    }
+
+        function backToStep4() {
+
+        document.getElementById("step5").style.display = "none";
+        document.getElementById("step4").style.display = "block";
+
+        updateStepper(4);
+    }
+ 
+</script>
+</form>

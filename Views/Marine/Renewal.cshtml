@@ -1,0 +1,90 @@
+﻿@model InsuraV2.Models.Marine
+@{
+    ViewData["Title"] = "Marine Insurance";
+}
+<div class="card border-0 shadow">
+
+    <div class="card-header bg-primary text-white">
+        <h5 class="mb-0">Marine Insurance Details</h5>
+    </div>
+
+    <div class="card-body">
+
+        <div class="mb-3">
+            <label class="form-label">Policy Type</label>
+
+            <select class="form-select">
+                <option>Select Policy Type</option>
+                <option>Open Cover</option>
+                <option>Single Shipment</option>
+                <option>Annual Cover</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Cargo Type</label>
+
+            <select class="form-select">
+                <option>Select Cargo Type</option>
+                <option>Machinery</option>
+                <option>Electronics</option>
+                <option>Furniture</option>
+                <option>Food Products</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Departure Country</label>
+
+            <input type="text"
+                   class="form-control"
+                   placeholder="Enter departure country">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Destination Country</label>
+
+            <input type="text"
+                   class="form-control"
+                   placeholder="Enter destination country">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Shipment Value (JOD)</label>
+
+            <input id="insuredAmount"
+                   type="number"
+                   class="form-control"
+                   placeholder="Enter shipment value">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Coverage Type</label>
+
+            <select class="form-select">
+                <option>Select Coverage</option>
+                <option>Basic Coverage</option>
+                <option>Comprehensive Coverage</option>
+            </select>
+        </div>
+
+    </div>
+
+</div>
+<div class="card mt-4 border-0 shadow-sm">
+
+    <div class="card-body text-center">
+
+        <h6 class="text-muted">
+            Estimated Premium
+        </h6>
+
+        <h2 class="fw-bold text-success">
+            <span id="premiumResult">0</span> JOD
+        </h2>
+
+        <button class="btn btn-primary mt-3">Calculate Premium</button>
+
+    </div>
+
+</div>

@@ -1,0 +1,706 @@
+﻿@model Motor
+
+@{
+    ViewData["Title"] = "Create FleetQuotation";
+}
+
+<form>
+
+    <!-- Stepper -->
+
+    <div class="d-flex justify-content-center mb-5">
+
+        Step 1
+
+        Step 2
+
+        Step 3
+
+    </div>
+
+    <!-- Step 1 -->
+    <div id="step1">
+
+        <div class="card shadow-sm">
+
+            <div class="card-body">
+
+                <h4 class="mb-2">
+                    Add Vehicle Request
+                </h4>
+
+                <p class="text-muted">
+                    Upload an Excel file or add vehicles manually
+                </p>
+
+                <!-- Upload Excel -->
+
+                <div class="card mb-4">
+
+                    <div class="card-body">
+
+                        <div class="d-flex justify-content-between align-items-center">
+
+                            <div>
+
+                                <h5>Upload Excel</h5>
+
+                                <small class="text-muted">
+                                    Download the template, fill vehicle data,
+                                    then upload the completed file.
+                                </small>
+
+                            </div>
+
+                            <button class="btn btn-outline-secondary">
+
+                                Download Excel Template
+
+                            </button>
+
+                        </div>
+
+                        <input type="file"
+                               class="form-control mt-3" />
+
+                    </div>
+
+                </div>
+
+                <!-- Vehicles Table -->
+
+                <table class="table table-bordered">
+
+                    <thead class="table-light">
+
+                        <tr>
+
+                            <th>Actions</th>
+                            <th>Plate Number *</th>
+                            <th>Registration Number *</th>
+                            <th>Sum Insured (JD) *</th>
+                            <th>Notes</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+
+                                <button class="btn btn-sm btn-outline-danger">
+                                    Delete
+                                </button>
+
+                            </td>
+
+                            <td>
+
+                                <div class="row">
+
+                                    <div class="col-5">
+
+                                        <input class="form-control" />
+
+                                    </div>
+
+                                    <div class="col-2 text-center">
+
+                                        -
+
+                                    </div>
+
+                                    <div class="col-5">
+
+                                        <input class="form-control" />
+
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+                            <td>
+
+                                <input class="form-control" />
+
+                            </td>
+
+                            <td>
+
+                                <input class="form-control" />
+
+                            </td>
+
+                            <td>
+
+                                <input class="form-control" />
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+                <button type="button"
+                        class="btn btn-outline-secondary mb-4">
+
+                    + Add Vehicle
+
+                </button>
+
+                <!-- Policy Date -->
+
+                <div class="card">
+
+                    <div class="card-body">
+
+                        <h5>
+                            Policy Start Date *
+                        </h5>
+
+                        <label class="form-label">
+
+                            Policy Start
+
+                        </label>
+
+                        <input type="date"
+                               class="form-control" />
+
+                    </div>
+
+                </div>
+
+                <div class="d-flex justify-content-between mt-4">
+
+                    <a asp-action="FleetQuotation"
+                       class="btn btn-outline-secondary">
+
+                        Back
+
+                    </a>
+
+                    <div>
+
+                        <button type="button"
+                                class="btn btn-light">
+
+                            Save Draft
+
+                        </button>
+
+                        <button type="button"
+                                class="btn btn-warning text-white"
+                                onclick="goToStep2()">
+
+                            Next
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Step 2 -->
+
+    <div id="step2" style="display:none">
+
+        <div class="card shadow-sm">
+
+            <div class="card-body">
+
+                <h4 class="mb-4">Company Details</h4>
+
+                <div class="row">
+
+                    <div class="col-md-4 mb-3">
+                        <label>Commercial Number *</label>
+                        <input class="form-control" />
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label>Company National Number *</label>
+                        <input class="form-control" />
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label>&nbsp;</label>
+                        <button class="btn btn-outline-warning w-100">
+                            Verify
+                        </button>
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <label>Company Name (English) *</label>
+                        <input class="form-control" />
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <label>Company Name (Arabic) *</label>
+                        <input class="form-control" />
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <label>Nationality *</label>
+                        <select class="form-select">
+                            <option>Jordanian</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <label>Phone Number *</label>
+                        <input class="form-control" />
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <label>Trade Name *</label>
+                        <input class="form-control" />
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <label>Number Of Employees *</label>
+                        <input class="form-control" />
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <label>Capital *</label>
+                        <input class="form-control" />
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <label>Commercial License Number *</label>
+                        <input class="form-control" />
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <label>Country *</label>
+                        <select class="form-select">
+                            <option>Jordan</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <label>City *</label>
+                        <input class="form-control" />
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <label>Region *</label>
+                        <input class="form-control" />
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <label>Address *</label>
+                        <input class="form-control" />
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label>Company Email *</label>
+                        <input class="form-control" />
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label>Company Phone *</label>
+                        <input class="form-control" />
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label>Tax Number *</label>
+                        <input class="form-control" />
+                    </div>
+
+                </div>
+
+                <hr class="my-4" />
+
+                <h4 class="mb-4">
+                    Contact Person / Administrator
+                </h4>
+
+                <div class="row">
+
+                    <div class="col-md-3 mb-3">
+                        <label>Nationality *</label>
+                        <select class="form-select">
+                            <option>Jordanian</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <label>National ID</label>
+                        <input class="form-control" />
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <label>Marital Status</label>
+                        <select class="form-select">
+                            <option>Single</option>
+                            <option>Married</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <label>Gender *</label>
+                        <select class="form-select">
+                            <option>Male</option>
+                            <option>Female</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <label>Date Of Birth</label>
+                        <input type="date" class="form-control" />
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <label>Passport Number</label>
+                        <input class="form-control" />
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <label>Passport Issue Date</label>
+                        <input type="date" class="form-control" />
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <label>Passport Expiry Date</label>
+                        <input type="date" class="form-control" />
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <label>First Name (English)</label>
+                        <input class="form-control" />
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <label>Father Name (English)</label>
+                        <input class="form-control" />
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <label>Grandfather Name (English)</label>
+                        <input class="form-control" />
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <label>Family Name (English)</label>
+                        <input class="form-control" />
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <label>First Name (Arabic)</label>
+                        <input class="form-control" />
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <label>Father Name (Arabic)</label>
+                        <input class="form-control" />
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <label>Grandfather Name (Arabic)</label>
+                        <input class="form-control" />
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <label>Family Name (Arabic)</label>
+                        <input class="form-control" />
+                    </div>
+
+                </div>
+
+                <div class="d-flex justify-content-between mt-4">
+
+                    <button type="button"
+                            class="btn btn-outline-secondary"
+                            onclick="backToStep1()">
+
+                        Back
+
+                    </button>
+
+                    <div>
+
+                        <button type="button"
+                                class="btn btn-light">
+
+                            Save Draft
+
+                        </button>
+
+                        <button type="button"
+                                class="btn btn-warning text-white"
+                                onclick="goToStep3()">
+
+                            Next
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Step 3 -->
+    <div id="step3" style="display:none">
+
+        <div class="card shadow-sm">
+
+            <div class="card-body">
+
+                <h4 class="mb-2">
+                    Motor Fleet Quotation Review
+                </h4>
+
+                <p class="text-muted">
+                    Review all details before submitting for approval
+                </p>
+
+                <!-- Quotation Summary -->
+
+                <h5 class="mb-3">
+                    Quotation Summary
+                </h5>
+
+                <div class="row mb-4">
+
+                    <div class="col-md-3">
+
+                        <div class="card text-center">
+                            <div class="card-body">
+
+                                <small>Total Vehicles</small>
+
+                                <h5 class="mt-2">1</h5>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <div class="card text-center">
+                            <div class="card-body">
+
+                                <small>Sum Insured</small>
+
+                                <h5 class="mt-2">
+                                    542,233 JD
+                                </h5>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <div class="card text-center">
+                            <div class="card-body">
+
+                                <small>Policy Start</small>
+
+                                <h5 class="mt-2">
+                                    01/11/2026
+                                </h5>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <div class="card text-center">
+                            <div class="card-body">
+
+                                <small>Company Name</small>
+
+                                <h6 class="mt-2">
+                                    Company Name
+                                </h6>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Vehicle Summary -->
+
+                <h5 class="mb-3">
+                    Vehicle Summary
+                </h5>
+
+                <table class="table table-bordered">
+
+                    <thead class="table-light">
+
+                        <tr>
+
+                            <th>Vehicle Number</th>
+                            <th>Registration</th>
+                            <th>Market Value</th>
+                            <th>Notes</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>22-22222</td>
+                            <td>2545655796</td>
+                            <td>542,233 JD</td>
+                            <td>-</td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+                <!-- Attachments -->
+
+                <div class="card mb-4">
+
+                    <div class="card-body">
+
+                        <label class="form-label">
+
+                            Other Attachments
+
+                        </label>
+
+                        <input type="file"
+                               class="form-control" />
+
+                    </div>
+
+                </div>
+
+                <!-- Notes -->
+
+                <div class="mb-4">
+
+                    <label class="form-label">
+                        Notes
+                    </label>
+
+                    <textarea class="form-control"
+                              rows="3"></textarea>
+
+                </div>
+
+                <!-- Terms -->
+
+                <div class="alert alert-success">
+
+                    <div class="form-check">
+
+                        <input type="checkbox"
+                               class="form-check-input"
+                               id="terms">
+
+                        <label class="form-check-label"
+                               for="terms">
+
+                            I confirm that all submitted information
+                            and attachments are complete and valid.
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+                <!-- Footer Buttons -->
+
+                <div class="d-flex justify-content-between mt-4">
+
+                    <button type="button"
+                            class="btn btn-outline-secondary"
+                            onclick="backToStep2()">
+
+                        Back To Edit
+
+                    </button>
+
+                    <div>
+
+                        <button type="button"
+                                class="btn btn-light">
+
+                            Save As Draft
+
+                        </button>
+
+                        <button type="submit"
+                                class="btn btn-warning text-white">
+
+                            Submit For Approval
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</form>
+
+
+
+<script>
+
+    function goToStep2()
+    {
+        document.getElementById("step1").style.display = "none";
+        document.getElementById("step2").style.display = "block";
+    }
+
+    function backToStep1()
+    {
+        document.getElementById("step2").style.display = "none";
+        document.getElementById("step1").style.display = "block";
+    }
+
+    function goToStep3()
+    {
+        document.getElementById("step2").style.display = "none";
+        document.getElementById("step3").style.display = "block";
+    }
+
+    function backToStep2()
+    {
+        document.getElementById("step3").style.display = "none";
+        document.getElementById("step2").style.display = "block";
+    }
+
+</script>

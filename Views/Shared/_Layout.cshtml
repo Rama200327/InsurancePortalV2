@@ -1,0 +1,275 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] Insura</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet"href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+    <!-- Insura Styles -->
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/sidebar.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/navbar.css" asp-append-version="true" />
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+
+<body>
+    @using System.Globalization
+@{
+    var currentCulture =
+        CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+
+    var targetCulture =
+        currentCulture == "ar" ? "en" : "ar";
+    var displayLanguage =
+        currentCulture == "ar" ? "AR" : "EN";
+}
+    <!-- Mobile Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="brand-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <div class="brand-text">
+                <span class="brand-name">Insura</span>
+                <span class="brand-subtitle">Insurance Platform</span>
+            </div>
+        </div>
+
+            <div class="nav-section">
+                <span class="nav-section-title">MAIN</span>
+                <a asp-controller="Dashboard"
+                   asp-action="Index"
+                   class="sidebar-link">
+                    <i class="fa-solid fa-grid-2"></i>
+                    <span>Dashboard</span>
+                </a>
+            </div>
+            <div class="nav-section">
+
+                <span class="nav-section-title">INSURANCE</span>
+
+            <!-- Motor -->
+            <div class="accordion-item custom-accordion">
+
+                <button class="accordion-button collapsed insurance-btn"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#motorMenu">
+                    <i class="fa-solid fa-car me-2">
+
+                    </i>
+                    Motor Insurance
+                </button>
+
+                <div id="motorMenu" class="accordion-collapse collapse">
+
+                    <div class="submenu">
+
+                        <a asp-controller="Motor"
+                           asp-action="Comprehensive">
+                            Comprehensive
+                        </a>
+
+                        <a asp-controller="Motor"
+                           asp-action="Renewal">
+                            Renewal
+                        </a>
+
+                        <a asp-controller="Motor"
+                           asp-action="FleetQuotation">
+                            Fleet Quotation
+                        </a>
+                                        </div>
+                              </div>
+                      </div>
+            </div>
+
+            <!-- Travel -->
+            <div class="accordion-item custom-accordion">
+                <button class="accordion-button collapsed insurance-btn"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#travelMenu">
+
+                    <i class="fa-solid fa-plane me-2"></i>
+                    Travel Insurance
+                </button>
+
+                <div id="travelMenu" class="accordion-collapse collapse">
+
+                    <div class="submenu">
+
+                        <a asp-controller="Travel"
+                           asp-action="IndividualTravelPolicy">
+                            Individual Travel
+                        </a>
+
+                        <a asp-controller="Travel"
+                           asp-action="FamilyTravelPolicy">
+                            Family Travel
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Medical -->
+            <div class="accordion-item custom-accordion">
+                <button class="accordion-button collapsed insurance-btn"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#medicalMenu">
+
+                    <i class="fa-solid fa-heart-pulse me-2"></i>
+                    Medical Insurance
+                </button>
+
+                <div id="medicalMenu" class="accordion-collapse collapse">
+
+                    <div class="submenu">
+                        <a asp-controller="Medical"
+                           asp-action="MedicalPolicyIssuance">
+                            Medical Issuance
+                        </a>
+                        <a asp-controller="Medical"
+                           asp-action="MedicalPolicyRenewal">
+                            Medical Renewal
+                        </a>
+                        <a asp-controller="Medical"
+                           asp-action="MedicalQoutation">
+                            Medical Quotation
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Marine -->
+            <div class="accordion-item custom-accordion">
+
+                <button class="accordion-button collapsed insurance-btn"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#marineMenu">
+
+                    <i class="fa-solid fa-ship me-2"></i>
+                    Marine Insurance
+                </button>
+
+                <div id="marineMenu" class="accordion-collapse collapse">
+
+                    <div class="submenu">
+
+                        <a asp-controller="Marine"
+                           asp-action="Quotation">
+                            Marine Quotation
+                        </a>
+
+                        <a asp-controller="Marine"
+                           asp-action="Renewal">
+                            Marine Renewal
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        <!-- Sidebar Bottom -->
+
+        <div class="sidebar-bottom">
+
+            <div class="user-mini">
+
+                <div class="user-avatar">
+                    <span>RA</span>
+                </div>
+
+                <div class="user-info">
+                    <span class="user-name">Rama Abuaqoulah</span>
+                    <span class="user-role">Insurance Agent / Broker</span>
+                </div>
+                <i class="fa-solid fa-ellipsis-vertical user-menu-icon"></i>
+            </div>
+            <a href="#" class="logout-link">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+
+    <!-- Main Wrapper -->
+
+    <div class="main-wrapper">
+
+        <!-- Navbar -->
+        <header class="top-navbar">
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+                <div class="navbar-actions">
+
+                    <button class="navbar-icon-btn">
+                        <i class="fa-regular fa-bell"></i>
+                        <span class="notification-dot"></span>
+                    </button>
+                    <a asp-controller="Language"
+                       asp-action="SetLanguage"
+                       asp-route-culture="@targetCulture"
+                       asp-route-returnUrl="@Context.Request.Path"
+                       class="navbar-icon-btn">
+                        @displayLanguage
+                    </a>
+                    <div class="navbar-divider"></div>
+
+                    <div class="navbar-user">
+
+                        <div class="navbar-avatar">
+                            RA
+                        </div>
+
+                        <div class="navbar-user-info">
+                            <span>Rama Abuaqoulah</span>
+                            <small>Agent / Broker</small>
+                        </div>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                </div>
+        </header>
+
+        <!-- Page Content -->
+
+        <main class="page-content">
+            @RenderBody()
+
+        </main>
+        <!-- Footer -->
+        <footer class="site-footer">
+            <span>© @DateTime.Now.Year Insura</span>
+            <span>Insurance Management Platform</span>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js"asp-append-version="true"></script>
+    <script src="~/js/sidebar.js"asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
